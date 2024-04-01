@@ -1,0 +1,87 @@
+body { /* Especificações globais */
+    color: #ddd;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #191818;
+}
+
+#logo {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 250px;
+    height: 250px;
+}
+
+h2 {
+    font-size:xx-large;
+    padding-bottom: 30px;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    line-height: 5px;
+}
+
+#registerCard, #loginCard{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    border: none;
+    border-radius: 60px;
+    background: linear-gradient(90deg, #000000, #3533cd); 
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
+}
+
+input {
+    color: #ddd;
+    background-color: #191818;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+a {
+    color: #00F5FF;
+}
+
+button {
+    font-size: x-large;
+    color: #ddd;
+    background-color: #3533cd;
+    border-radius: 30px;
+    border: none;
+    height: 60px;
+    width: 60;
+}
+
+/**************CSS da matrícula********************/
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: center;
+    padding: 10px;
+    background-color: #ddd;
+    color: #000000;
+}
+
+.card {
+    color:#ddd;
+    background-color: #3533cd;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
