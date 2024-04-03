@@ -2,13 +2,14 @@ function register() {
     let username = document.getElementById('registerUsername').value;
     let password = document.getElementById('registerPassword').value;
     let repPassword = document.getElementById('repeatPassword').value;
+    let checkbox = document.getElementById('checkboxAdm').checked;
 
     if (password !== repPassword) {
         alert("As senhas não coincidem!");
         return;
     } else {
-        // Armazene o nome de usuário e a senha no localStorage
-        localStorage.setItem(username, password);
+        // Armazene o nome de usuário, a senha e a informação de admin no localStorage
+        localStorage.setItem(username, JSON.stringify({ password: password, isAdmin: checkbox }));
         window.location.href = '/login.html';
     }
 }
@@ -17,16 +18,19 @@ function login() {
     let username = document.getElementById('loginUsername').value;
     let password = document.getElementById('loginPassword').value;
 
-    // Recupera a senha para o nome de usuário inserido do localStorage
-    let storedPassword = localStorage.getItem(username);
+    // Recupera os dados do usuário do localStorage
+    let userData = JSON.parse(localStorage.getItem(username));
 
-    if (password === storedPassword) {
-        window.location.href = '/matricula.html';
+    if (userData && password === userData.password) {
+        if (userData.isAdmin) {
+            window.location.href = '/admin.html';
+        } else {
+            window.location.href = '/matricula.html';
+        }
     } else {
         alert('Usuário ou senha inválidos!');
     }
 }
-
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -37,6 +41,7 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
 /***************Lógica das matrículas********************/
 let classes = [
     { disciplina: 'Programação Front-End', professor: 'Prof. Elon', vagas: 10, dia: 'Segunda-feira' },
