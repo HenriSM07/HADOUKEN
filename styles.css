@@ -16,6 +16,13 @@ body { /* Especificações globais */
     height: 250px;
 }
 
+label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    margin-right: 10px;
+}
+
 h2 {
     font-size:xx-large;
     padding-bottom: 30px;
@@ -60,28 +67,59 @@ button {
 }
 
 /**************CSS da matrícula********************/
-
-table {
-    width: 100%;
-    margin-bottom: 20px;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }
-
-th {
-    text-align: center;
-    padding: 10px;
-    background-color: #ddd;
-    color: #000000;
-}
-
 .card {
-    color:#ddd;
-    background-color: #3533cd;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    border: none;
+    border-radius: 60px;
+    background: linear-gradient(90deg, #000000, #3533cd);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
-
-.card h3 {
+.card h2 {
     margin-top: 0;
+    font-size: 18px;
+}
+.card p {
+    font-size: 14px;
+}
+.card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.table-container {
+    margin-top: 50px;
+    text-align: center;
+    overflow-x: auto;
+}
+table {
+    min-width: 800px;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.add-button {
+    margin-bottom: 20px;
 }
