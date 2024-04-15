@@ -8,14 +8,6 @@ body { /* Especificações globais */
     background-color: #191818;
 }
 
-#logo {
-    position: absolute;
-    top: 0px;
-    left: 5px;
-    width: 700px;
-    height: 400px;
-}
-
 label {
     display: inline-block;
     width: 200px;
@@ -52,6 +44,11 @@ input {
     border-radius: 5px;
 }
 
+label {
+    display: flex;
+    justify-content: start;
+}
+
 a {
     color: #00F5FF;
 }
@@ -66,15 +63,6 @@ button {
     width: 60;
 }
 
-.faixaRoxa {
-    background-color:#3533cd;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-}
-
 /**************CSS da matrícula********************/
 .container {
     display: flex;
@@ -82,53 +70,61 @@ button {
     justify-content: center;
     padding: 20px;
 }
+
 .card {
-    width: 100px;
-    height: 100px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 200px;
+    height: 200px;
     margin: 20px;
-    padding: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    padding: 100px;
+    padding: 20px;
     border: none;
-    border-radius: 60px;
+    border-radius: 30px;
     background: linear-gradient(90deg, #000000, #3533cd);
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
+
 .card h2 {
     margin-top: 0;
     font-size: 18px;
 }
+
 .card p {
-    font-size: 14px;
+    font-size: 15px;
+    margin-top: 0;
 }
+
 .card button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     font-size: 14px;
 }
+
 .table-container {
-    margin-top: 50px;
-    text-align: center;
-    overflow-x: auto;
+    position: fixed; /* Fixa a tabela no topo da tela */
+    top: 0; /* Alinha a tabela com o topo da tela */
+    width: 100%; /* Faz a tabela ocupar 100% da largura da tela */
+
 }
+
+#schedule {
+    width: 100%; /* Faz a tabela ocupar 100% da largura do seu contêiner */
+    table-layout: fixed; /* Faz com que as células da tabela tenham larguras iguais */
+}
+
 table {
     min-width: 800px;
     border-collapse: collapse;
     white-space: nowrap;
 }
+
 th, td {
-    padding: 10px;
+    padding: 5px;
     border-bottom: 1px solid #ddd;
-}
-.add-button {
-    margin-bottom: 20px;
 }

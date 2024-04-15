@@ -10,7 +10,7 @@
 <body>
 
 <div class="container" id="turmaContainer">
-    <!-- Turmas serão adicionadas aqui -->
+    <!-- as turmas serão adicionadas aqui -->
 </div>
 
 <div class="table-container">
@@ -33,50 +33,42 @@
 </div>
 
 <div class="add-button">
-    <button onclick="mostrarFormulario()">(   +   )</button>
-</div>
-
-<div id="formulario" style="display: none;">
-    <h2>Adicionar Turma</h2>
-    <form id="addTurmaForm">
-        <input type="text" id="disciplina" placeholder="Disciplina: " name="disciplina"><br>
-        <input type="text" id="professor" placeholder="Professor: " name="professor"><br>
-        <input type="number" id="vagas" placeholder="N° de vagas: " name="vagas"><br>
-        <select id="dia" placeholder="Dia: " name="dia">
-            <option value="segunda">Segunda-feira</option>
-            <option value="terca">Terça-feira</option>
-            <option value="quarta">Quarta-feira</option>
-            <option value="quinta">Quinta-feira</option>
-            <option value="sexta">Sexta-feira</option>
-        </select><br><br>
-        <button type="button" onclick="adicionarTurma()">Adicionar Turma</button>
-    </form>
+    <button onclick="mostrarFormulario()">➕</button>
+    <div id="formulario" style="display: none;">
+        <h2>Nova turma</h2>
+        <form id="addTurmaForm">
+            <input type="text" id="disciplina" placeholder="Disciplina: " name="disciplina"><br>
+            <input type="text" id="professor" placeholder="Professor: " name="professor"><br>
+            <input type="number" id="vagas" placeholder="N° de vagas: " name="vagas"><br>
+            <select id="dia" placeholder="Dia: " name="dia">
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+            </select><br><br>
+            <button type="button" onclick="adicionarTurma()">Adicionar Turma</button>
+        </form>
+    </div>
 </div>
 
 <script>
-    window.onload = function() {
-        var isAdmin = localStorage.getItem('isAdmin');
-        if (isAdmin === true) {
-            var addButtonContainer = document.querySelector('.add-button');
-            var addButtonHtml = `
-
-            `;
-            addButtonContainer.innerHTML = addButtonHtml;
-        }
-    };
 
     // Simulação de turmas a partir de um array de objetos
-    var turmas = [
-        { disciplina: "Matemática", professor: "João Silva", vagas: 20, dia: "segunda" },
-        { disciplina: "Física", professor: "Maria Santos", vagas: 15, dia: "terca" }
+    let turmas = [
+        { disciplina: "Back-End", professor: "João Silva", vagas: 20, dia: "segunda" },
+        { disciplina: "Front-End", professor: "Maria Santos", vagas: 15, dia: "terca" },
+        { disciplina: "UI/UX", professor: "João Silva", vagas: 20, dia: "quarta" },
+        { disciplina: "Banco de Dados", professor: "Maria Santos", vagas: 15, dia: "quinta" },
+        { disciplina: "Teste de Software", professor: "Maria Santos", vagas: 15, dia: "sexta" }
     ];
 
     // Função para criar os cards das turmas
     function criarCardsDeTurmas() {
-        var turmaContainer = document.getElementById("turmaContainer");
+        let turmaContainer = document.getElementById("turmaContainer");
 
         turmas.forEach(function(turma) {
-            var card = document.createElement("div");
+            let card = document.createElement("div");
             card.classList.add("card");
             card.innerHTML = `
                 <h2>${turma.disciplina}</h2>
@@ -95,22 +87,22 @@
 
     // Função para mostrar o formulário de adição de turma
     function mostrarFormulario() {
-        var formulario = document.getElementById("formulario");
+        let formulario = document.getElementById("formulario");
         formulario.style.display = "block";
     }
 
     // Função para adicionar uma nova turma
     function adicionarTurma() {
-        var disciplina = document.getElementById("disciplina").value;
-        var professor = document.getElementById("professor").value;
-        var vagas = document.getElementById("vagas").value;
-        var dia = document.getElementById("dia").value;
+        let disciplina = document.getElementById("disciplina").value;
+        let professor = document.getElementById("professor").value;
+        let vagas = document.getElementById("vagas").value;
+        let dia = document.getElementById("dia").value;
 
         // Adicionar nova turma ao array de turmas
         turmas.push({ disciplina: disciplina, professor: professor, vagas: vagas, dia: dia });
 
         // Recarregar os cards das turmas
-        var turmaContainer = document.getElementById("turmaContainer");
+        let turmaContainer = document.getElementById("turmaContainer");
         turmaContainer.innerHTML = ''; // Limpar o conteúdo existente
         criarCardsDeTurmas();
 
@@ -120,14 +112,14 @@
 
     // Funções de manipulação dos cards na tabela de horários (mantidas para compatibilidade)
     function goToDay(day, cardNode) {
-        var cardClone = cardNode.cloneNode(true);
-        var scheduleCell = document.getElementById(day + '-cell');
+        let cardClone = cardNode.cloneNode(true);
+        let scheduleCell = document.getElementById(day + '-cell');
         scheduleCell.innerHTML = ''; // Limpar qualquer conteúdo existente
         scheduleCell.appendChild(cardClone);
     }
 
     function removeFromDay(day) {
-        var scheduleCell = document.getElementById(day + '-cell');
+        let scheduleCell = document.getElementById(day + '-cell');
         scheduleCell.innerHTML = ''; // Remover o card do dia da semana
     }
 </script>

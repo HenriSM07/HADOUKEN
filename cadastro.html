@@ -5,22 +5,22 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <img id="logo" src="image/hadouken.png" alt="logo">
     <div id="registerCard">
-        <h2>Cadastro</h2>
+        <h2>Cadastre-se</h2>
         <input type="text" id="registerUsername" placeholder="Nome de usuário">
         <input type="password" id="registerPassword" placeholder="Senha">
         <input type="password" id="repeatPassword" placeholder="Repita a senha">
         <button id="registerBtn" onclick="register()">Criar conta</button>
         <p>Já possui uma conta? <a href="/login.html">Entre por aqui!</a></p>
-        <label for="admin">É administrador?</label>
-        <input type="checkbox" id="checkboxAdm" name="admin" onclick="toggleAdmin">
-    </div>
+        <label for="checkboxAdm">É administrador?
+            <input type="checkbox" id="checkboxAdm" name="admin" onclick="toggleAdmin">
+        </label>
+    </div>    
 
     <script src="script.js"></script>
     <script>
         function toggleAdmin() {
-            var checkbox = document.getElementById('checkboxAdm');
+            let checkbox = document.getElementById('checkboxAdm');
             localStorage.setItem('isAdmin', checkbox.checked);
         }
     </script>
